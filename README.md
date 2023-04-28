@@ -1,2 +1,2 @@
-npm i or yan
+npm i or yarn
 npm start
