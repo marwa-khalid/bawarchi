@@ -1,2 +1,3 @@
-npm i or yarn
-npm start
+setup: npm i or yarn
+
+Run: npm start
