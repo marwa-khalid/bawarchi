@@ -1,11 +1,11 @@
-import  SanityClient  from "@sanity/client";
-import imageUrlBuilder  from "@sanity/image-url";
+import sanityClient from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 
-const client = SanityClient({
-  projectId: "rvrzkb3p",
+const client = sanityClient({
+  projectId: "pke3jdxd",
   dataset: "production",
-  useCdn: "cdn",
-  apiVersion: "2022-02-21",
+  useCdn: true,
+  apiVersion: "2021-10-21",
 });
 
 const builder = imageUrlBuilder(client);

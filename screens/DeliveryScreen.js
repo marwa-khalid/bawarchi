@@ -1,93 +1,78 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
-import { useSelector } from "react-redux";
-import { selectRestaurant } from "../slices/restaurantSlice";
-import { TouchableOpacity } from "react-native";
 import {
-  PhoneArrowDownLeftIcon,
-  XMarkIcon,
-} from "react-native-heroicons/solid";
-import { SafeAreaView } from "react-native-safe-area-context";
+  View,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+  Image,
+} from "react-native";
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
+import { selectRestaurant } from "../features/RestaurantSlice";
+import { XMarkIcon } from "react-native-heroicons/solid";
 import * as Progress from "react-native-progress";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
-import { Marker } from "react-native-maps";
-import { setJSExceptionHandler } from "react-native-exception-handler";
+import MapView from "react-native-maps";
 
-const DeliveryScreen = ({ navigation }) => {
-
-  setJSExceptionHandler((error,Fatal) => {
-    alert(error.name)
-  },true)
-
+const DeliveryScreen = () => {
+  const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
   return (
-    <View className="bg-[#00ccbb] flex-1">
+    <View className="bg-[#00CCBB] flex-1">
       <SafeAreaView className="z-50">
         <View className="flex-row justify-between items-center p-5">
           <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-            <XMarkIcon color="#fff" size={30} />
+            <XMarkIcon color="white" size={30} />
           </TouchableOpacity>
           <Text className="font-light text-white text-lg">Order Help</Text>
         </View>
 
-        <View className="bg-white mx-5 my-2 rounded-md p-4 py-6 z-50 shadow-3xl">
-          <View className="flex-row justify-between space-y-3">
+        <View className="bg-white mx-5 my-2 rounded-md p-6 z-50 shadow-md">
+          <View className="flex-row justify-between">
             <View>
-              <Text className="text-md text-gray-400">Estimated Arrival</Text>
-              <Text className="text-3xl font-bold">10-15 Minutes</Text>
+              <Text className="text-lg text-gray-400">Estimated Arrival</Text>
+              <Text className="text-4xl font-bold">25-30 Minutes</Text>
             </View>
             <Image
-              source={require("./assets/order.png")}
-              className="h-14 w-14 object-cover"
+              source={{
+                uri: "https://links.papareact.com/fls",
+              }}
+              className="h-20 w-20"
             />
           </View>
-          <Progress.Bar size={30} color="#00ccbb" indeterminate={true} />
 
-          <Text className="mt-3 text-gray-500 text-sm">
-            Your order at {restaurant.title} is being Prepared
+          <Progress.Bar size={30} color="#00CCBB" indeterminate={true} />
+
+          <Text className="mt-3 text-gray-500">
+            Your order at {restaurant.title} is being prepared
           </Text>
         </View>
       </SafeAreaView>
 
       <MapView
-        provider={PROVIDER_GOOGLE}
-        mapType="mutedStandard"
-        className="flex-1 -mt-10 z-0"
         initialRegion={{
-          latitude: restaurant.lat,
-          longitude: restaurant.long,
+          latitude: 28.5990958,
+          longitude: -81.2091442,
           latitudeDelta: 0.005,
           longitudeDelta: 0.005,
         }}
-      >
-        <Marker
-          coordinate={{
-            latitude: restaurant.lat,
-            longitude: restaurant.long,
-          }}
-          title={restaurant.title}
-          description={restaurant.short_description}
-          identifier="origin"
-          pinColor="#00ccbb"
-        />
-      </MapView>
+        className="flex-1 -mt-10 z-0"
+        mapType="mutedStandart"
+      ></MapView>
 
-      <View className="bg-white flex-row items-center px-5 space-x-4 h-28">
+      <SafeAreaView className="flex-row bg-white items-center space-x-5 h-28 shadow-md">
         <Image
           source={{
-            uri: "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+            uri: "https://links.papareact.com/wru",
           }}
-          className="h-12 w-12 bg-gray-300 rounded-full "
+          className="h-12 w-12 bg-gray-300 p-4 rounded-full ml-5"
         />
-        <View className="flex-1 ">
-          <Text className="text-lg">Akshansh</Text>
-          <Text className="text-gray-400">Your Rider</Text>
+        <View className="flex-1">
+          <Text className="text-lg ">Ahmad Kamal</Text>
+          <Text className="text-gray-400 ">Your Driver</Text>
         </View>
 
-        <TouchableOpacity className="text-gray-400 text-lg font-bold">
-          <PhoneArrowDownLeftIcon size={20} color="#00ccbb" />
-        </TouchableOpacity>
-      </View>
+        <Text className="text-[#00CCBB] text-lg mr-5 font-bold">Call</Text>
+      </SafeAreaView>
     </View>
   );
 };

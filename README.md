@@ -1,20 +1,20 @@
+<div align="center">
 
-# Delivero App using React Native
+<h2>Screen recording of the App 📸</h2>
 
-## App Demo
-![App Demo](https://github.com/akki251/Food-Delivery-App-React-Native/blob/master/app%20video%20record%20gif.gif)
-
-![Main Screens](https://github.com/akki251/Food-Delivery-App---React-Native/blob/master/First%20Shot.png)
+[![Screen Shot 2022-09-07 at 7 40 27 PM](https://user-images.githubusercontent.com/61883762/189001527-ce5f05b5-d023-42d7-9339-e1cb43901cdc.png)](https://user-images.githubusercontent.com/61883762/193630344-17215c4f-4099-48aa-a8cc-c87d45a9e503.mp4)
 
 
-Using this app, They will be able to browse restaurant menus, add dishes to a virtual cart, and place orders.
-
-The backend will be built using Sanity and will store the data related to the restaurants, menus, orders, and user accounts. Sanity will provide a flexible, powerful, and secure platform for data storage as well as a user-friendly content management system for restaurant owners to manage their menus. 
-
-The project will also integrate with Google Maps to provide location data for restaurants. 
-
-Overall, this project will create a streamlined experience for users to order food online from their favorite restaurants.
-
-![Main Screens](https://github.com/akki251/Food-Delivery-App---React-Native/blob/master/Second.png)
+</div>
 
 
+## Information about the project
+
+Fully functional food delivery app built with `React Native`, `Redux`, `Sanity CMS`, `Tailwind CSS`.
+<ul>
+<li>Built with React Native which is used to create android, iOS and windows apps.</li>
+<li>Used Sanity CMS to power the backend of the app, allowing the team/future developers to easily update the contents of the app.</li>
+<li>Used React Native Navigation to navigate between screens.</li>
+<li>Built a sleek animated checkout flow with an AWESOME UI/UX experience.</li>
+<li> Clean file and folder structure.</li>
+</ul>
